@@ -18,5 +18,23 @@ describe("API", () => {
         request(api).get("/").expect(200, done);
     })
 
+    it("Responds to a GET request at /flavours with a 200 status", (done) => {
+        request(api).get("/flavours").expect(200, done);
+    })
+
+    it("Responds to a GET request at /flavours with a JSON object", (done) => {
+        request(api).get("/flavours").expect(200).expect('Content-Type', /json/, done);
+    })
+
+    // it("Responds to a GET request at /flavours with a JSON object that has a flavours key", (done) => {
+    //     request(api).get("/flavours").end((err, res) => {
+    //         expect.assertions(2);
+    //         const data = res.body;
+    //         expect("flavours" in data);
+    //         expect(data["flavours"] instanceof Array);
+    //         done();
+    //     })
+    // })
+
    
 })
